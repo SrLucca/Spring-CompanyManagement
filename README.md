@@ -1,2 +1,2 @@
-# Spring-CompanyManagement
+# Sprint-CompanyManagement
 Um sistema de gestão interna de empresa.
