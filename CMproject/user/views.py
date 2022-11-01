@@ -46,8 +46,18 @@ def userLogin(request):
 
     return render(request, "pages/authentication/login.html")
 
+def userLogout(request):
+    
+    logout(request)
+    
+    return redirect('/') 
+
 def profileView(request):
-    return render(request, "pages/profile.html")
+
+    if request.user.is_authenticated == True:
+        return render(request, "pages/profile.html")
+    else:
+        return redirect('/')
 
 def editProfileView(request):
 
