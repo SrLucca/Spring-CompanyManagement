@@ -4,6 +4,8 @@ from user.forms import registerForm, ProfileForm
 from django.urls import reverse
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from user.models import CustomUser, CustomUserManager
 
 from django.contrib import messages
 
@@ -13,11 +15,28 @@ from django.contrib import messages
 def userRegister(request):
 
     if request.method == "POST":
-        form = registerForm(request.POST)
-        if form.is_valid():
-            form.save()
-        else:
-            messages.add_message(request, messages.ERROR, "Falha no cadastro")
+        context = {'data': request.POST}
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        email = request.POST.get('email')
+        telefone = request.POST.get('telefone')
+        senha1 = request.POST.get('senha1')
+
+        str(nome)
+        nome.split(" ")
+
+        try:
+            new_user = CustomUserManager.create_user(self, email=email, password=senha1, cpf=cpf, telefone=telefone, nome_completo=nome)
+            
+            user = authenticate(request, email=email, password=senha1)
+
+            login(request, user)
+
+
+            return redirect(reverse('profile'))
+        except:
+            messages.add_message(request, messages.ERROR,
+                                'Preencha todos os campos para poder se cadastrar!')
             return redirect('/register')
     else:
         form = registerForm()
@@ -28,10 +47,10 @@ def userLogin(request):
 
     if request.method == 'POST':
         context = {'data': request.POST}
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if not user:
             context = {'data': request.POST}
