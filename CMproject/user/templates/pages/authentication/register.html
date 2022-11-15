@@ -30,25 +30,31 @@
         <div class="u-form u-form-1">
           <form method="post" class="u-clearfix u-form-spacing-19 u-form-vertical u-inner-form" style="padding: 25px;">
             {% csrf_token %}
+            
             <div class="u-form-group u-form-name">
-              <label for="name-4151" class="u-custom-font u-label u-text-body-alt-color u-label-1">Nome</label>
-              <input type="text" id="name-4151" name="nome" class="u-border-1 u-border-custom-color-2 u-input u-input-rectangle u-radius-4 u-text-custom-color-2 u-input-1" required="" placeholder="Ex: Fulano Silva">
+              <label for="name-4151" class="u-custom-font u-label u-text-body-alt-color u-label-1">Username</label>
+              {{form.username}}
+            </div>
+
+            <div class="u-form-group u-form-name">
+              <label for="{{form.nome_completo.id_for_label}}" class="u-custom-font u-label u-text-body-alt-color u-label-1">Nome</label>
+              {{form.nome_completo}}
             </div>
             <div class="u-form-email u-form-group">
-              <label for="email-4151" class="u-custom-font u-label u-text-body-alt-color u-label-2">CPF/CNPJ</label>
-              <input type="text" id="email-4151" name="cpf" class="u-border-1 u-border-custom-color-2 u-input u-input-rectangle u-radius-4 u-text-custom-color-2 u-input-2" required="">
+              <label for="{{form.cpf.id_for_label}}" class="u-custom-font u-label u-text-body-alt-color u-label-2">CPF/CNPJ</label>
+              {{form.cpf}}
             </div>
             <div class="u-form-group u-form-group-3">
-              <label for="text-4524" class="u-custom-font u-label u-text-body-alt-color u-label-3">Email</label>
-              <input type="email" placeholder="" id="text-4524" name="email" class="u-border-1 u-border-custom-color-2 u-input u-input-rectangle u-radius-4 u-text-custom-color-2 u-input-3">
+              <label for="{{form.email.id_for_label}}" class="u-custom-font u-label u-text-body-alt-color u-label-3">Email</label>
+              {{form.email}}
             </div>
             <div class="u-form-group u-form-group-4">
-              <label for="text-cac7" class="u-custom-font u-label u-text-body-alt-color u-label-4">Telefone</label>
-              <input type="number" placeholder="Ex:11999999999" id="text-cac7" name="telefone" class="u-border-1 u-border-custom-color-2 u-input u-input-rectangle u-radius-4 u-text-custom-color-2 u-input-4">
+              <label for="{{form.telefone.id_for_label}}" class="u-custom-font u-label u-text-body-alt-color u-label-4">Telefone</label>
+              {{form.telefone}}
             </div>
             <div class="u-form-group u-form-group-5">
-              <label for="text-cd93" class="u-custom-font u-label u-text-body-alt-color u-label-5">Senha</label>
-              <input type="password" placeholder="" id="text-cd93" name="senha1" class="u-border-1 u-border-custom-color-2 u-input u-input-rectangle u-radius-4 u-text-custom-color-2 u-input-5">
+              <label for="{{form.telefone.id_for_label}}" class="u-custom-font u-label u-text-body-alt-color u-label-5">Senha</label>
+              {{form.password1}}
             </div>
             <div class="u-align-center u-form-group u-form-submit">
               <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-custom-color-2 u-custom-font u-radius-4 u-text-custom-color-3 u-btn-1">Cadastrar<br>

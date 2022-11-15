@@ -16,32 +16,7 @@ class CustomUser(AbstractUser):
     nome_completo = models.CharField(max_length=255, null=True, blank=True)
     
     def __str__(self):
-        return self.cpf
-
-class CustomUserManager(BaseUserManager):
-    use_in_migrations = True
-
-    def _create_user(self, email, password, cpf, telefone, nome_completo):
-        """
-        Create and save a user with the given username, email, and password.
-        """
-        if not username:
-            raise ValueError("The given username must be set")
-        email = self.normalize_email(email)
-        # Lookup the real model class from the global app registry so this
-        # manager method can be used in migrations. This is fine because
-        # managers are by definition working on the real model.
-        GlobalUserModel = apps.get_model(
-            self.model._meta.app_label, self.model._meta.object_name
-        )
-        username = GlobalUserModel.normalize_username(username)
-        user = self.model(username=username, email=email, cpf=cpf, telefone=telefone, nome_completo=nome_completo)
-        user.password = make_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_user(self, email=None, password=None, cpf=None, telefone=None, nome_completo=None):
-        return self._create_user(email, password, cpf, telefone, nome_completo)
+        return self.email
 
 
 class Profile(models.Model):
@@ -49,7 +24,7 @@ class Profile(models.Model):
     profile_image = models.ImageField(default='profile.png', upload_to='users/', null=True, blank=True)
 
     def __str__(self):
-        return self.user.cpf
+        return self.user.username
 
 
 @receiver(post_save, sender=CustomUser)
