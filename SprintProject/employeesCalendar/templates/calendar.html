@@ -1,3 +1,26 @@
-<h1>Ola, esses são seu eventos para {{month}} de {{year}}</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
 
-{{ month_number }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+    <title>Calendário</title>
+</head>
+<body>
+
+    {% block content %}
+    <center>
+        <h1>Ola {{request.user}}, esses são seus eventos para {% translate month %} de {{year}}</h1>
+        
+            {{ cal|safe }}
+        
+        </center>
+    {% endblock %}
+</body>
+</html>
+

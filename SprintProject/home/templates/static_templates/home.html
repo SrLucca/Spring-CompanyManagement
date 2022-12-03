@@ -1,4 +1,11 @@
-<h1>Sprint Project</h1>
+{% extends 'base.html' %}
 
-<a href="/login">Login</a>
-<a href="/cadastro">Cadastro</a>
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<h1>Sprint Project</h1>
+{% else %}
+    <a href="/login">Login</a>
+    <a href="/cadastro">Cadastro</a>
+{% endif %}
+{% endblock %}

@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>PROFILE</h1>
 
 <h3>{{request.user.username}}</h3>
 
 <p><a href="/logout">Log Out</a></p>
+<p><a href="/calendario/{{month_name}}/{{year}}">Seu Calendário</a></p>
+{% endblock %}

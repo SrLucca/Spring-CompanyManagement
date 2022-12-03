@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from userFunctions.forms import registerForm
 from django.contrib.auth import logout, authenticate, login
+from datetime import datetime
+import calendar
+
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def registerView(request):
@@ -18,8 +22,15 @@ def registerView(request):
 
     return render(request, 'register/registration.html', {'form':form})
 
+@login_required(login_url='/login')
 def userProfile(request):
-    return render(request, 'profile/profile.html')
+    now = datetime.now()
+    current_month = now.month
+    year = now.year
+    month_name = calendar.month_name[current_month]
+    return render(request, 'profile/profile.html',
+    {"month_name": month_name,
+    "year":year})
 
 
 def userLogin(request):
