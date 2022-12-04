@@ -38,7 +38,12 @@ gereciamento empresar​ial​">
             </h1>
 
             <h3>{{request.user.username}}</h3>
-
+            {% if times %}
+                {% for objs in times %}
+                    <h3>times: {{objs.nome}}</h3>
+                {% endfor %}
+            {% else %}
+            {% endif %}
             <p><a href="/logout">Log Out</a></p>
             <p><a href="/calendario/{{month_name}}/{{year}}">Seu Calendário</a></p>
             </section>
