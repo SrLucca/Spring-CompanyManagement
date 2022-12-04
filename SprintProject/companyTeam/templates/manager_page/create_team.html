@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center><h1>Criar Time</h1>
+<form method="POST">
+    {% csrf_token %}
+    <h3>Nome</h3>
+    <input type="text" name="nome">
+    <br>
+    <h3>Emai Profissional</h3>
+    <input type="email" name="email">
+    <br>
+    <h3>Imagem</h3>
+    <input type="image" name="imagem">
+    <br>
+    <h3>Inicio Atividades</h3>
+    <p>(segunda a sexta)</p>
+    <input type="time" name="horario">
+    <br>
+    <br>
+    <button type="submit">Criar</button>
+</form>
+</center>
+{% endblock %}
