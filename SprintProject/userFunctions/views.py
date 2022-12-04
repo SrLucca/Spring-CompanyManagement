@@ -5,6 +5,8 @@ from datetime import datetime
 import calendar
 
 from django.contrib.auth.decorators import login_required
+
+from companyTeam.models import compTeamModel
 # Create your views here.
 
 def registerView(request):
@@ -28,9 +30,18 @@ def userProfile(request):
     current_month = now.month
     year = now.year
     month_name = calendar.month_name[current_month]
-    return render(request, 'profile/profile.html',
-    {"month_name": month_name,
-    "year":year})
+    
+    user_teams = compTeamModel.objects.filter(manager=request.user.profile)
+
+    if user_teams:
+
+        context = {"month_name": month_name,
+        "year":year, "times":user_teams}
+    else:
+        context = {"month_name": month_name,
+        "year":year}
+    
+    return render(request, 'profile/profile.html', context)
 
 
 def userLogin(request):
