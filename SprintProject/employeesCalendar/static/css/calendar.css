@@ -1,15 +1,17 @@
 body center table tbody tr th{
     padding-right: 2rem;
     font-size: x-large;
+    color: #ff1464;
 }
 
 body center table tbody tr td{
-    color: red;
+    color: #e45887;
     font-size: xx-large;
     padding-right: 2rem;
 }
 
 body center table tbody tr td:hover{
-    color: blue;
+    color: #ff95b9;
     transition: 600ms;
+    cursor: pointer;
 }

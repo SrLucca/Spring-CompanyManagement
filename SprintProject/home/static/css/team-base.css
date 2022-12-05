@@ -12,27 +12,7 @@
   font-weight: 700;
   font-size: 2.25rem;
   margin: 100px auto 0;
-}
-
-#foto_perfil{
-  width: 150px;
-  border-radius: 100%;
-  border-style: solid;
-  border-width: medium;
-  border-color: #ff1464;
-}
-
-#nome_user{
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ff1464;
-}
-
-.container{
-  width: 500px;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: medium;
-  border-color: #ff1464;
+  height: 10px;
 }
 
 .u-section-1 .u-text-2 {

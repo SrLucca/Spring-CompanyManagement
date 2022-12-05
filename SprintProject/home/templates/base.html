@@ -21,16 +21,21 @@
         {% if request.user.is_authenticated %}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <strong><a class="nav-link active" aria-current="page" href="/profile" style="color:  #ff1464; padding: 0; height: 42;">Perfil</a></strong>
+                <strong><a class="nav-link active" aria-current="page" href="/profile" style="color:  #ff1464; padding-right: 0px; width: 10; height: 60;">Perfil</a></strong>
                 </li>
             </ul>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <strong><a class="nav-link active" aria-current="page" href="/create-company-team" style="color:  #ff1464; padding: 0; height: 50;">Criar Time</a></strong>
+                <strong><a class="nav-link active" aria-current="page" href="/create-company-team" style="color:  #ff1464; padding: 0; height: 45;">Criar Time</a></strong>
                 </li>
             </ul>
         
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 sair" style="padding-left: 900px; height: 42;">
+                <li class="nav-item">
+                <strong><a class="nav-link active" aria-current="page" href="/logout" style="color:  #ff1464; padding: 0; height: 42;">Sair</a></strong>
+                </li>
+            </ul>
         {% else %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-left: 1000px;">
             <li class="nav-item">
@@ -42,14 +47,6 @@
         </ul>
         {% endif %}
 
-        {% if request.user.is_authenticated %}
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 sair" style="padding-left: 1100px;">
-            <li class="nav-item">
-            <strong><a class="nav-link active" aria-current="page" href="/logout" style="color:  #ff1464; padding: 0; height: 42;">Sair</a></strong>
-            </li>
-        </ul>
-        {% else %}
-        {% endif %}
     </div>
     </nav>
 

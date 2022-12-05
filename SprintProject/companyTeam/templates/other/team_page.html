@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+
+
 {% block content %}
-
-
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="pt"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,9 @@
     <meta name="keywords" content="​O maior CRM de
 gereciamento empresar​ial​">
     <meta name="description" content="">
-    <title>Página Inicial</title>
+    <title>Calendario</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/team-base.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
@@ -34,25 +35,17 @@ gereciamento empresar​ial​">
 
         <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{% static 'img/img_home.jpg' %}" data-image-width="6000" data-image-height="4000" id="sec-1a7d">
             <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Profile
+            <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Time
             </h1>
 
-            <img id="foto_perfil" src="{{request.user.profile.profile_image.url}}" alt="">
-            <strong><h1 id="nome_user">{{request.user.username}}</h1></strong>
             
-            <br>
-            <div class="container">
-                {% if times %}
-                    <h3>Seus times</h3>
-                    {% for objs in times %}
-                        <h4><a href="/times/{{objs.nome}}">{{objs.nome}}</a></h4>
-                    {% endfor %}
-                {% else %}
-                {% endif %}
-            </div>
-            <p><a href="/calendario/{{month_name}}/{{year}}">Seu Calendário</a></p>
-            <p><a href="/logout">Log Out</a></p>
-            
+            {% for objs in team %}
+                <h3>{{objs.nome}}</h3>
+                <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Manager
+                </h1>
+                <h3>{{objs.manager}}</h3>
+            {% endfor %}
+    
             </section>
 
 

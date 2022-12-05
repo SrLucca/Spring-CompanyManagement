@@ -23,3 +23,12 @@ def createTeam(request):
         pass
     
     return render(request, 'manager_page/create_team.html')
+
+
+def teamView(request, nome):
+
+    team = compTeamModel.objects.filter(nome=nome)
+
+    context = {"team": team}
+
+    return render(request, 'other/team_page.html', context)
