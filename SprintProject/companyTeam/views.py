@@ -32,3 +32,6 @@ def teamView(request, nome):
     context = {"team": team}
 
     return render(request, 'other/team_page.html', context)
+
+def createActivities(request):
+    return
