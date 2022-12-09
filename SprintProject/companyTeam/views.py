@@ -1,7 +1,12 @@
-from django.shortcuts import render, redirect
-from companyTeam.forms import createCompTeam
-from companyTeam.models import compTeamModel
+from django.shortcuts import render, redirect, get_object_or_404
+from companyTeam.forms import createCompTeam, createActi
+from companyTeam.models import compTeamModel, employessActivities
+
 from django.http import QueryDict
+
+from django.contrib.auth.models import User
+
+from django.forms import inlineformset_factory
 
 # Create your views here.
 
@@ -32,6 +37,25 @@ def teamView(request, nome):
     context = {"team": team}
 
     return render(request, 'other/team_page.html', context)
+    
 
-def createActivities(request):
-    return
+
+def createAct(request, nome_time):
+    
+    if request.method == 'POST':
+        form = createActi(request.POST)
+
+        nome_atividade = form['atividade'].value()
+        if form.is_valid():
+            form.save()
+
+                
+        time = compTeamModel.objects.get(nome=nome_time)
+        atividade = employessActivities.objects.get(atividade=nome_atividade)
+        time.atividades.add(atividade)
+        time.save()
+        return redirect(f'/times/{nome_time}')
+    form = createActi()
+
+    context = {'form': form}
+    return render(request, 'manager_page/create_act.html', context)

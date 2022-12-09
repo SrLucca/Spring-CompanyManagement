@@ -10,7 +10,7 @@
     <meta name="keywords" content="​O maior CRM de
 gereciamento empresar​ial​">
     <meta name="description" content="">
-    <title>Página Inicial</title>
+    <title>Porfile</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/profile.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -49,6 +49,11 @@ gereciamento empresar​ial​">
                     {% endfor %}
                 {% else %}
                 {% endif %}
+
+                    <h3>Seus times como Colaborador</h3>
+                    {% for objs in user.compteammodel_set.all %}
+                        <h4><a href="/times/{{objs.nome}}">{{objs.nome}}</a></h4>
+                    {% endfor %}
             </div>
             <p><a href="/calendario/{{month_name}}/{{year}}">Seu Calendário</a></p>
             <p><a href="/logout">Log Out</a></p>

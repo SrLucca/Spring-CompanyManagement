@@ -11,7 +11,9 @@
     <meta name="keywords" content="​O maior CRM de
 gereciamento empresar​ial​">
     <meta name="description" content="">
-    <title>Calendario</title>
+    {% for titulo in team %}
+        <title>{{titulo.nome}}</title>
+    {% endfor %}
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/team-base.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -44,8 +46,43 @@ gereciamento empresar​ial​">
                 <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Manager
                 </h1>
                 <h3>{{objs.manager}}</h3>
-                <a href="/times/criar-atividade">Adicionar Atividade</a>
+                <br>
+                {% if user.profile == objs.manager %}
+                Integrantes
+                {% for emp in objs.integrantes.all %}
+                    <p>{{emp.username}} -> <a href="/time/manager/criar-atividade/{{objs.nome}}">Adicionar Atividade</a> </p>
+                {% endfor %}
+
+                {% else %}
+
+                {% endif %}
             {% endfor %}
+
+            <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Atividades Pendentes
+            
+                <div id="tabela">
+
+                
+            <table >
+                <tr>
+                <th>Colaborador</th>
+                <th>Atividade</th>
+                <th>Prazo Máximo</th>
+            </tr>
+            {% for objs in team %}
+                {% for acts in objs.atividades.all %}
+                <tr>
+                    <td>{{acts.empregado}}</td>
+                    <td>{{acts.atividade}}</td>
+                    <td>{{acts.prazo_maximo}}</td>
+
+                </tr>
+                <hr>
+                {% endfor %}
+            {% endfor %}
+            </table>
+        </div>
+                
     
             </section>
 

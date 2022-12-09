@@ -21,6 +21,62 @@
   margin: 22px auto 60px;
 }
 
+#id_empregado{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_atividade{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_prazo_maximo{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_username{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+.helptext{
+  font-size: smaller;
+}
+#form_register h4{
+  color: #ff1464;
+}
+
+#id_email{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_first_name{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_last_name{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_password1{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+#id_password2{
+  background-color: rgba(66, 66, 66, 0.75);
+}
+
+
+#tabela table th{
+  font-size: xx-large;
+  color: #ff1464;
+}
+
+#tabela table td{
+  font-size: x-large;
+  color: white;
+  margin-left: 20%;
+}
+
+
 @media (max-width: 1199px) {
   .u-section-1 .u-sheet-1 {
     min-height: 730px;

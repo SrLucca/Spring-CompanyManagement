@@ -10,7 +10,7 @@
     <meta name="keywords" content="​O maior CRM de
 gereciamento empresar​ial​">
     <meta name="description" content="">
-        <title>Login</title>
+    <title>Criar Atividade</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/team-base.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -34,32 +34,14 @@ gereciamento empresar​ial​">
 
         <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="{% static 'img/img_home.jpg' %}" data-image-width="6000" data-image-height="4000" id="sec-1a7d">
             <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Login
+            <h1 class="u-custom-font u-text u-text-custom-color-1 u-text-default u-title u-text-1"> Criar Atividade
             </h1>
 
             
-            <form action="" method="post" id="form_register">
+            <form action="" method="post">
                 {% csrf_token %}
-                <strong><h4>Username</h4></strong> 
-                {{form.username}}
-                <br>
-                <strong><h4>Email</h4> </strong>
-                {{form.email}}
-                <br>
-                <strong><h4>Primeiro Nome</h4></strong> 
-                {{form.first_name}}
-                <br>
-                <strong><h4>Ultimo Nome</h4></strong> 
-                {{form.last_name}}
-                <br>
-                <strong><h4>Senha</h4></strong> 
-                {{form.password1}}
-                <br>
-                <strong><h4>Confirmar Senha</h4></strong>
-                {{form.password2}}
-                <br>
-
-                <button style="background-color: rgb(0,0,0,0.75);" type="submit">Cadastrar</button>
+                {{form}}
+                <button type="submit" style="background-color: rgb(0,0,0,0.75);">Criar</button>
             </form>
     
             </section>
